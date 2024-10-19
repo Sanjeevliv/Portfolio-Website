@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 
-def HomePageView(response):
-    return HttpResponse('Hello World')
+def HomePageView(request):
+    return render(request,'home.html')
