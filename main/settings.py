@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -20,13 +20,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-+1u)-77xqfbbyy5_o3l!jd)boy=5e@ud!r&3!tg)$et&@4l_ky'
+SECRET_KEY = os.environ.get('SECRET_KEY', default='lCmSWZaCjmjqfkzI9lM4lmyP2zTQBpRp04O45Gd7WnA=')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = 'RENDER' not in os.environ
 
-ALLOWED_HOSTS = ['sanjeevsethi.in', 'mysite-4hcf.onrender.com']
+ALLOWED_HOSTS = ['sanjeevsethi.in', 'www.sanjeevsethi.in', 'mysite-4hcf.onrender.com', '127.0.0.1']
 
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 # Application definition
 
