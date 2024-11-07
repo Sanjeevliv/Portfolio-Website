@@ -2,21 +2,9 @@
 {% extends 'base.html' %}
 
 {% block title %}Home{% endblock title %}
-
 {% block content %}
+
 <div class="container">
-    <h1 class="heading">Domain name working, Issi baat pe Shayari ho Jae Janab</h1>
-
-    <p class="shayari">
-        "चांदनी" रात थी,<br>
-        दौड़ रहा था "सोने" का घोड़ा,<br>
-        वाह वाह, वाह वाह<br>
-        "चांदनी" रात थी,<br>
-        दौड़ रहा था "सोने" का घोड़ा,<br>
-        टबडक टबडक<br>
-        बिना सिर-पैर की शायरी सुन रहा माँ का लौंडा।
-    </p>
-
     {% if user.is_authenticated %}
         <div class="user-section">
             <p>Hi {{ user.username }}!</p>
@@ -33,89 +21,5 @@
         </div>
     {% endif %}
 </div>
+
 {% endblock content %}
-
-<style>
-    /* Apply background color to the entire page */
-    body {
-        background: linear-gradient(to right, #e66465, #9198e5);
-        font-family: 'Arial', sans-serif;
-        color: #333;
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    /* Container for content */
-    .container {
-        max-width: 90%;
-        margin: 0 auto;
-        padding: 20px;
-        text-align: center;
-        background-color: rgba(255, 255, 255, 0.9); /* Light background behind content */
-        border-radius: 10px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        margin-top: 40px;
-    }
-
-    /* Heading styles */
-    .heading {
-        font-size: 2.5rem;
-        color: #fff;
-        margin-bottom: 20px;
-        line-height: 1.4;
-        font-weight: bold;
-    }
-
-    /* Shayari styling for better visibility and aesthetic */
-    .shayari {
-        font-size: 2.0rem; /* Increased font size */
-        line-height: 2.0;
-        color: #333;
-        background-color: #f8f9fa;
-        padding: 20px;
-        border-radius: 10px;
-        margin-bottom: 30px;
-        font-family: 'Georgia', serif;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Button styling */
-    .btn {
-        display: inline-block;
-        padding: 10px 20px;
-        font-size: 1rem;
-        background-color: #007bff;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        text-decoration: none;
-        margin: 10px;
-    }
-
-    .btn:hover {
-        background-color: #0056b3;
-    }
-
-    /* Section styles for user or auth actions */
-    .user-section, .auth-section {
-        text-align: center;
-    }
-
-    /* Mobile-first styling */
-    @media (max-width: 768px) {
-        .heading {
-            font-size: 2rem;
-        }
-
-        .shayari {
-            font-size: 1.5rem;
-        }
-
-        .btn {
-            width: 100%;
-            padding: 12px;
-        }
-    }
-</style>
